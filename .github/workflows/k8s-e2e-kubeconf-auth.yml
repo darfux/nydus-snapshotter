@@ -1,0 +1,16 @@
+name: E2E Test With Kubernetes (kubeconf auth)
+
+on:
+  push:
+    branches:
+      - "cri-auth-e2e"
+    tags:
+      - v[0-9]+.[0-9]+.[0-9]+
+  pull_request:
+    branches: [main]
+
+jobs:
+  kubeconf_auth:
+    uses: ./.github/workflows/k8s-e2e-base.yml
+    with:
+      auth-type: kubeconf
